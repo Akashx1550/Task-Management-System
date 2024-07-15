@@ -1,6 +1,8 @@
 /* Existing styles */
 .navbar {
-    background-color: #343a40;
+    background-color: #f5f5f5;
+    /* background: transparent; */
+    /* background: linear-gradient(to right, #6a11cb, #2575fc); */
     padding: 1rem;
 }
 
@@ -11,8 +13,9 @@
 }
 
 .navbar .navbar-brand {
-    color: #fff;
+    color: #171717;
     text-decoration: none;
+    font-weight: 600;
     font-size: 1.3rem;
 }
 
@@ -22,10 +25,10 @@
 }
 
 .navbar .navbar-links a {
-    color: #fff;
+    color: #171717;
     margin-left: 1rem;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .navbar .navbar-links a:hover {
@@ -36,7 +39,7 @@
     display: none;
     background: none;
     border: none;
-    color: #fff;
+    color: #000;
     font-size: 1.5rem;
 }
 

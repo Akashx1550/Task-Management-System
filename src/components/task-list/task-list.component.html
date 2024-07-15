@@ -3,7 +3,7 @@
     <form class="task-form" (ngSubmit)="addTask()">
         <input type="text" [(ngModel)]="newTask.title" name="title" placeholder="Title" required>
         <textarea [(ngModel)]="newTask.description" name="description" placeholder="Description"></textarea>
-        <input type="date" [(ngModel)]="newTask.dueDate" name="dueDate" required>
+        <input type="date" [(ngModel)]="newTask.dueDate"  name="dueDate" required>
         <select [(ngModel)]="newTask.priority" name="priority" required>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
@@ -14,15 +14,18 @@
 
     <button *ngIf="hasTasks" class="export-btn" (click)="exportTasksToCSV()">Export tasks to CSV</button>
 
-    
+
     <ul class="task-list">
         <div class="sort-buttons" *ngIf="hasTasks">
-            <button (click)="sortTasks('dueDate')">Sort by: Due Date {{ sortBy === 'dueDate' ? (sortAsc ? '▲' : '▼') : '' }}</button>
-            <button (click)="sortTasks('priority')">Sort by: Priority {{ sortBy === 'priority' ? (sortAsc ? '▲' : '▼') : '' }}</button>
-            <button (click)="sortTasks('status')">Sort by: Status {{ sortBy === 'status' ? (sortAsc ? '▲' : '▼') : '' }}</button>
+            <button (click)="sortTasks('dueDate')">Sort by: Due Date {{ sortBy === 'dueDate' ? (sortAsc ? '▲' : '▼') :
+                '' }}</button>
+            <button (click)="sortTasks('priority')">Sort by: Priority {{ sortBy === 'priority' ? (sortAsc ? '▲' : '▼') :
+                '' }}</button>
+            <button (click)="sortTasks('status')">Sort by: Status {{ sortBy === 'status' ? (sortAsc ? '▲' : '▼') : ''
+                }}</button>
         </div>
         <li *ngFor="let task of tasks$ | async" class="task-item">
-            <div class="editForm" *ngIf="editedTask && editedTask.id === task.id; else viewMode" >
+            <div class="editForm" *ngIf="editedTask && editedTask.id === task.id; else viewMode">
                 <input type="text" [(ngModel)]="editedTask.title" name="editTitle" required>
                 <textarea [(ngModel)]="editedTask.description" name="editDescription"></textarea>
                 <input type="date" [(ngModel)]="editedTask.dueDate" name="editDueDate" required>
@@ -39,10 +42,13 @@
                 <p>{{ task.description }}</p>
                 <p>Due: {{ task.dueDate | date }}</p>
                 <p>Priority: {{ task.priority }}</p>
-                <p>Status: {{ task.status }}</p>
-                <button class="to-do" (click)="updateTaskStatus(task, 'to-do')">To-Do</button>
-                <button class="in-progress" (click)="updateTaskStatus(task, 'in-progress')">In-Progress</button>
-                <button class="completed" (click)="updateTaskStatus(task, 'completed')">Completed</button>
+                <p>Status:
+                    <select [ngModel]="task.status" (ngModelChange)="updateTaskStatus(task, $event)">
+                        <option value="to-do">To-Do</option>
+                        <option value="in-progress">In-Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </p>
                 <button class="edit" (click)="editTask(task)">Edit</button>
                 <button class="delete" (click)="deleteTask(task.id)">Delete</button>
                 <button class="history" (click)="toggleHistory(task.id)">History</button>

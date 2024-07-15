@@ -3,7 +3,7 @@ div.task-list-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 h2 {
@@ -21,7 +21,7 @@ div.task-list-container button {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: rgb(59, 54, 54);
+    background-color: #171717;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -63,7 +63,7 @@ form.task-form select {
 
 form.task-form button[type="submit"] {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1.2rem;
     color: #fff;
     background-color: #007bff;
     border: none;
@@ -162,18 +162,6 @@ ul.task-list li.task-item button:hover {
     opacity: 0.9;
 }
 
-ul.task-list li.task-item button.to-do {
-    background-color: #ffc107;
-}
-
-ul.task-list li.task-item button.in-progress {
-    background-color: #17a2b8;
-}
-
-ul.task-list li.task-item button.completed {
-    background-color: #28a745;
-}
-
 ul.task-list li.task-item button.edit {
     background-color: #007bff;
 }
@@ -192,6 +180,24 @@ ul.task-list li.task-item button.cancel {
 
 ul.task-list li.task-item button.history {
     background-color: #6c757d;
+}
+
+select {
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: 500;
+    background: #f5f5f5;
+}
+
+/* Task item styling */
+ul.task-list li.task-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
 /* Responsive styling */
@@ -294,6 +300,11 @@ ul.task-list li.task-item button.history {
         font-size: 12px;
         padding: 5px 8px;
     }
+
+    select {
+        padding: 5px 5px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -335,5 +346,10 @@ ul.task-list li.task-item button.history {
     div.sort-buttons button {
         font-size: 10px;
         padding: 4px 6px;
+    }
+
+    select {
+        padding: 3px 3px;
+        font-size: 12px;
     }
 }

@@ -1,9 +1,9 @@
 .landing-container {
     text-align: center;
     padding: 5vh 2vw;
-    /* Use relative units for padding */
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: white;
+    /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+    background: #f5f5f5;
+    color: #171717;
     min-height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;
@@ -27,6 +27,7 @@
     margin: 0.5rem;
     background-color: #007bff;
     color: #fff;
+    font-size: 1.1rem;
     text-decoration: none;
     border-radius: 0.25rem;
     transition: background-color 0.3s ease;
