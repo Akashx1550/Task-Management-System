@@ -1,0 +1,20 @@
+<div class="signup-container">
+    <form (submit)="signup()">
+        <h1>Welcome</h1>
+        <h3>Please enter your credentials to login</h3>
+        <label>
+            Username:
+            <input type="text" [(ngModel)]="user.username" name="username" required />
+        </label>
+        <label>
+            email:
+            <input type="email" [(ngModel)]="user.email" name="email" required />
+        </label>
+        <label>
+            Password:
+            <input type="password" [(ngModel)]="user.password" name="password" required />
+        </label>
+        <p>Already signed up? <a routerLink="/login">Login</a></p>
+        <button type="submit">Sign Up</button>
+    </form>
+</div>

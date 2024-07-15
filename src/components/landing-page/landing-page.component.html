@@ -1,0 +1,11 @@
+<div class="landing-container">
+    <h1>Welcome to Task Management System</h1>
+    <p>Organize your tasks efficiently and boost your productivity.</p>
+    <div class="buttons" *ngIf="!authService.isLoggedIn()">
+        <a routerLink="/login" class="btn">Login</a>
+        <a routerLink="/signup" class="btn">Signup</a>
+    </div>
+    <div class="buttons" *ngIf="authService.isLoggedIn()">
+        <a routerLink="/tasks" class="btn">Add a task</a>
+    </div>
+</div>

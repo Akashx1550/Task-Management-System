@@ -1,0 +1,16 @@
+<div class="login-container">
+    <form (submit)="login()" method="post">
+        <h1>Welcome</h1>
+        <h3>Please enter your credentials to login</h3>
+        <label>
+            Email:
+            <input type="email" [(ngModel)]="credentials.email" name="email" required class="form-control" />
+        </label>
+        <label>
+            Password:
+            <input type="password" [(ngModel)]="credentials.password" name="password" required class="form-control" />
+        </label>
+        <p>New User? <a routerLink="/signup">Signup</a></p>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+</div>

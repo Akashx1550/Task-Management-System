@@ -1,0 +1,93 @@
+/* Existing styles */
+.navbar {
+    background-color: #343a40;
+    padding: 1rem;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.navbar .navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-links a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navbar .navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* div.overlay{
+    display: hidden;
+} */
+
+@media (max-width: 768px) {
+    .navbar .navbar-links {
+        display: none;
+    }
+
+    .navbar .navbar-brand{
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Transparent background */
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay-content {
+        background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
+        padding: 2rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .overlay-content a {
+        display: block;
+        color: #343a40;
+        text-decoration: none;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    .overlay-content a:hover {
+        text-decoration: underline;
+    }
+}

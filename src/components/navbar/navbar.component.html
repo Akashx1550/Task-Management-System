@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/landing" (click)="closeNavbar()">Task Management System</a>
+        <div class="navbar-links">
+            <a routerLink="/landing" (click)="closeNavbar()">Home</a>
+            <a *ngIf="!authService.isLoggedIn()" routerLink="/login" (click)="closeNavbar()">Login</a>
+            <a *ngIf="!authService.isLoggedIn()" routerLink="/signup" (click)="closeNavbar()">Signup</a>
+            <a *ngIf="authService.isLoggedIn()" routerLink="/tasks" (click)="closeNavbar()">Tasks</a>
+            <a *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</a>
+        </div>
+        <button class="navbar-toggler" (click)="toggleNavbar()">&#9776;</button>
+    </div>
+    <div class="overlay" *ngIf="isNavbarExpanded" (click)="closeNavbar()">
+        <div class="overlay-content" (click)="$event.stopPropagation()">
+            <a routerLink="/landing" (click)="closeNavbar()">Home</a>
+            <a *ngIf="!authService.isLoggedIn()" routerLink="/login" (click)="closeNavbar()">Login</a>
+            <a *ngIf="!authService.isLoggedIn()" routerLink="/signup" (click)="closeNavbar()">Signup</a>
+            <a *ngIf="authService.isLoggedIn()" routerLink="/tasks" (click)="closeNavbar()">Tasks</a>
+            <a *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</a>
+        </div>
+    </div>
+</nav>

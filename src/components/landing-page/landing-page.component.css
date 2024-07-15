@@ -1,0 +1,100 @@
+.landing-container {
+    text-align: center;
+    padding: 5vh 2vw;
+    /* Use relative units for padding */
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-container h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.landing-container p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.landing-container .buttons .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.landing-container .buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .landing-container h1 {
+        font-size: 2.5em;
+    }
+
+    .landing-container p {
+        font-size: 1.25em;
+    }
+}
+
+@media (max-width: 992px) {
+    .landing-container h1 {
+        font-size: 2em;
+    }
+
+    .landing-container p {
+        font-size: 1.2em;
+    }
+
+    .landing-container .buttons .btn {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-container {
+        padding: 3vh 5vw;
+    }
+
+    .landing-container h1 {
+        font-size: 1.8em;
+    }
+
+    .landing-container p {
+        font-size: 1.1em;
+    }
+
+    .landing-container .buttons .btn {
+        padding: 0.5rem 1rem;
+        margin: 0.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .landing-container {
+        padding: 3vh 3vw;
+    }
+
+    .landing-container h1 {
+        font-size: 1.5em;
+    }
+
+    .landing-container p {
+        font-size: 1em;
+    }
+
+    .landing-container .buttons .btn {
+        padding: 0.4rem 0.8rem;
+        margin: 0.3rem;
+    }
+}

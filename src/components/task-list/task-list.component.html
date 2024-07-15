@@ -1,0 +1,60 @@
+<div class="task-list-container">
+    <h2>Add a Task:</h2>
+    <form class="task-form" (ngSubmit)="addTask()">
+        <input type="text" [(ngModel)]="newTask.title" name="title" placeholder="Title" required>
+        <textarea [(ngModel)]="newTask.description" name="description" placeholder="Description"></textarea>
+        <input type="date" [(ngModel)]="newTask.dueDate" name="dueDate" required>
+        <select [(ngModel)]="newTask.priority" name="priority" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <button *ngIf="hasTasks" class="export-btn" (click)="exportTasksToCSV()">Export tasks to CSV</button>
+
+    
+    <ul class="task-list">
+        <div class="sort-buttons" *ngIf="hasTasks">
+            <button (click)="sortTasks('dueDate')">Sort by: Due Date {{ sortBy === 'dueDate' ? (sortAsc ? '▲' : '▼') : '' }}</button>
+            <button (click)="sortTasks('priority')">Sort by: Priority {{ sortBy === 'priority' ? (sortAsc ? '▲' : '▼') : '' }}</button>
+            <button (click)="sortTasks('status')">Sort by: Status {{ sortBy === 'status' ? (sortAsc ? '▲' : '▼') : '' }}</button>
+        </div>
+        <li *ngFor="let task of tasks$ | async" class="task-item">
+            <div class="editForm" *ngIf="editedTask && editedTask.id === task.id; else viewMode" >
+                <input type="text" [(ngModel)]="editedTask.title" name="editTitle" required>
+                <textarea [(ngModel)]="editedTask.description" name="editDescription"></textarea>
+                <input type="date" [(ngModel)]="editedTask.dueDate" name="editDueDate" required>
+                <select [(ngModel)]="editedTask.priority" name="editPriority" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button class="save" (click)="saveTask()">Save</button>
+                <button class="cancel" (click)="cancelEdit()">Cancel</button>
+            </div>
+            <ng-template #viewMode>
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+                <p>Due: {{ task.dueDate | date }}</p>
+                <p>Priority: {{ task.priority }}</p>
+                <p>Status: {{ task.status }}</p>
+                <button class="to-do" (click)="updateTaskStatus(task, 'to-do')">To-Do</button>
+                <button class="in-progress" (click)="updateTaskStatus(task, 'in-progress')">In-Progress</button>
+                <button class="completed" (click)="updateTaskStatus(task, 'completed')">Completed</button>
+                <button class="edit" (click)="editTask(task)">Edit</button>
+                <button class="delete" (click)="deleteTask(task.id)">Delete</button>
+                <button class="history" (click)="toggleHistory(task.id)">History</button>
+                <div *ngIf="viewingHistoryTaskId === task.id" class="task-history">
+                    <h4>History</h4>
+                    <ul>
+                        <li *ngFor="let entry of task.history">
+                            <span>{{ entry.date | date:'short' }}: {{ entry.action }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </ng-template>
+        </li>
+    </ul>
+</div>
