@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class AuthService {
-    private baseUrl = 'https://task-management-backend-335t.onrender.com/api/auth';
+    private baseUrl = 'https://task-management-backend-ruby.vercel.app/api/auth';
     private axios: AxiosInstance;
 
     constructor(private router: Router) {

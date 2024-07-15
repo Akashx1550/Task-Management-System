@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class TaskService {
-  private baseUrl = 'https://task-management-backend-335t.onrender.com/api';
+  private baseUrl = 'https://task-management-backend-ruby.vercel.app/api';
   private axiosInstance: AxiosInstance;
 
   constructor(private router: Router) {
